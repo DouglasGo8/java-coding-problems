@@ -3,12 +3,11 @@ package com.packtpub.java.coding.problems.strings.numbers;
 import com.packtpub.java.coding.problems.common.domain.SkinnyExchange;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.lang.System.out;
 
@@ -98,5 +97,61 @@ public class App {
 
     }
 
-    // pg 95
+
+    @Test
+    public void removeWhiteSpaces() {
+        var word = "Lady in red";
+
+        out.println(word.replaceAll("\\s", ""));
+    }
+
+    @Test
+    public void joinerString() {
+        var word = new String[]{"I'll try no be so long", "Java Rocks"};
+        out.println(Arrays.stream(word, 0, word.length).collect(Collectors.joining(",")));
+    }
+
+    @Test
+    public void permuteAndPrint() {
+        var prefix = "F";
+        var str = "Dream";
+
+        permute(prefix, str);
+    }
+
+    @Test
+    public void removeDuplicated() {
+        var word = "Humanity Falls";
+        out.println(Arrays.stream(word.split("")).distinct().collect(Collectors.joining()));
+
+    }
+
+    @Test
+    public void countCharWithMoreAppear() {
+        var word = "For lamb of god still my bleeding heart";
+
+        out.println(word.chars().filter(c -> !Character.isWhitespace(c))
+                .mapToObj(c-> (char)c)
+                //.forEach(out::println) // print each char
+                .collect(Collectors.groupingBy(c-> c, Collectors.counting()))
+                .entrySet()
+                //.forEach(out::println); //a=2...
+                .stream()
+                .max(Map.Entry.comparingByValue()).get());
+
+    }
+
+    // 15.
+
+    private void permute(String prefix, String str) {
+        int n = str.length();
+        if (n == 0) {
+            out.println(prefix);
+        } else {
+            IntStream.range(0, n)
+                    .parallel()
+                    .forEach(i -> permute(prefix + str.charAt(i),
+                            str.substring(i + 1, n) + str.substring(0, i)));
+        }
+    }
 }
