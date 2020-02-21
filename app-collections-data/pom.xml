@@ -10,12 +10,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.packtpub.java.coding.problems.string.numbers</groupId>
-    <artifactId>app-strings-numbers</artifactId>
+    <groupId>com.packtpub.java.coding.problems.collections.data</groupId>
+    <artifactId>app-collections-data</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Packtpub :: Java Coding :: Problems :: String Numbers and Math</name>
-
+    <name>Packtpub :: Java Coding :: Problems :: Collections Data</name>
 
     <dependencies>
         <dependency>
@@ -24,4 +23,5 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 </project>

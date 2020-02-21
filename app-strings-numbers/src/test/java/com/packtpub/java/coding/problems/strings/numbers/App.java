@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.lang.System.out;
 
@@ -131,9 +132,9 @@ public class App {
         var word = "For lamb of god still my bleeding heart";
 
         out.println(word.chars().filter(c -> !Character.isWhitespace(c))
-                .mapToObj(c-> (char)c)
+                .mapToObj(c -> (char) c)
                 //.forEach(out::println) // print each char
-                .collect(Collectors.groupingBy(c-> c, Collectors.counting()))
+                .collect(Collectors.groupingBy(c -> c, Collectors.counting()))
                 .entrySet()
                 //.forEach(out::println); //a=2...
                 .stream()
@@ -141,7 +142,47 @@ public class App {
 
     }
 
-    // 15.
+    @Test
+    public void concatSameStringNthTimes() {
+        var a = "hello".repeat(4);
+        var b = String.join("", Collections.nCopies(5, "Illuminate"));
+        out.println(Stream.generate(() -> "dancing").limit(5).collect(Collectors.joining()));
+        out.println(a);
+        out.println(b);
+    }
+
+    @Test
+    public void unsignedNumber() {
+        var nri = "255500";
+        var result = Integer.parseUnsignedInt(nri, 1, 4, Character.MAX_RADIX);
+        out.println(result);
+    }
+
+    @Test
+    public void floorDiv() {
+        int x = -222;
+        int y = 14;
+
+        int z = Math.floorDiv(x, y);
+        out.println(z);
+    }
+
+    @Test
+    public void removeLeadingTrailingSpaces() {
+        var word = "\n \n hello \n \n";
+        out.println(word.strip());
+    }
+
+    @Test
+    public void groupByNumbers() {
+
+        Stream.of(1, 2, 44, 232)
+                .sorted()
+                .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
+                .entrySet()
+                .forEach(out::println);
+
+    }
 
     private void permute(String prefix, String str) {
         int n = str.length();

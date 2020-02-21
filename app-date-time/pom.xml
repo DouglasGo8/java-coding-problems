@@ -10,18 +10,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.packtpub.java.coding.problems.string.numbers</groupId>
-    <artifactId>app-strings-numbers</artifactId>
+    <groupId>com.packtpub.java.coding.problems.date.time</groupId>
+    <artifactId>app-date-time</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Packtpub :: Java Coding :: Problems :: String Numbers and Math</name>
+    <name>Packtpub :: Java Coding :: Problems :: DateTime</name>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>com.packtpub.java.coding.problems.common.domain</groupId>
-            <artifactId>common-domain</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>
