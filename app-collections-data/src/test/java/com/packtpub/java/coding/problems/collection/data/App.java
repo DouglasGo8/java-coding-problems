@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.lang.System.out;
@@ -216,6 +218,58 @@ public class App {
 
     }
 
+    @Test
+    public void mapRemoveAllElements() {
+
+        var melons = new ArrayList<Melon>();
+
+        melons.add(new Melon(3000, "Apollo"));
+        melons.add(new Melon(3500, "Jade Dew"));
+        melons.add(new Melon(1500, "Cantaloupe"));
+        melons.add(new Melon(1600, "Gac"));
+        melons.add(new Melon(1400, "Hami"));
+
+        melons.removeIf(t -> t.getWeight() < 3000);
+
+        out.println(melons);
+
+        melons.stream().filter(t -> t.getWeight() >= 3000)
+                .collect(Collectors.toList())
+                .forEach(out::println);
+
+    }
+
+    @Test
+    public void partitioningBy() {
+
+        var melons = new ArrayList<Melon>();
+
+        melons.add(new Melon(3000, "Apollo"));
+        melons.add(new Melon(3500, "Jade Dew"));
+        melons.add(new Melon(1500, "Cantaloupe"));
+        melons.add(new Melon(1600, "Gac"));
+        melons.add(new Melon(1400, "Hami"));
+
+
+        var split = melons.stream().collect(Collectors.partitioningBy(t -> t.getWeight() >= 3000));
+
+        out.println(split.get(false));
+    }
+
+
+    @Test
+    public void concurrentThreadSageList() {
+        // Single-thread - Multi-threaded
+        // ArrayList - CopyOnWriteArrayList
+        // LinkedList - Vector
+
+        var queue = new ConcurrentLinkedDeque<Integer>();
+        var blockQueue2 = new PriorityBlockingQueue<Integer>();
+        var blockingQueue = new ArrayBlockingQueue<Integer>(100);
+        var synchronous  = new SynchronousQueue<Integer>();
+        var syncList = Collections.synchronizedList(new ArrayList<Integer>());
+        var syncMap = Collections.synchronizedMap(new HashMap<Integer, Integer>());
+    }
 
     private <T> boolean containsElem(T[] arr, T toContain) {
         for (T elem : arr) {
