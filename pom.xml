@@ -1,180 +1,271 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-      
+        
+  
   <modelVersion>4.0.0</modelVersion>
-      
+        
+  
   <groupId>com.packtpub.java.coding.problems</groupId>
-      
+        
+  
   <artifactId>java-coding-problems</artifactId>
-      
+        
+  
   <version>1.0-SNAPSHOT</version>
-      
+        
+  
   <packaging>pom</packaging>
-      
+        
+  
   <name>Packtpub :: Java Coding :: Problems</name>
-      
+        
+  
   <dependencies>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>junit</groupId>
-                  
+                        
+      
       <artifactId>junit</artifactId>
-                  
+                        
+      
       <version>4.12</version>
-              
+                    
+    
     </dependency>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>org.projectlombok</groupId>
-                  
+                        
+      
       <artifactId>lombok</artifactId>
-                  
+                        
+      
       <version>1.18.12</version>
-                  
+                        
+      
       <scope>provided</scope>
-              
+                    
+    
     </dependency>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>com.fasterxml.jackson.core</groupId>
-                  
+                        
+      
       <artifactId>jackson-databind</artifactId>
-                  
+                        
+      
       <version>2.10.2</version>
-              
+                    
+    
     </dependency>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>com.fasterxml.jackson.core</groupId>
-                  
+                        
+      
       <artifactId>jackson-core</artifactId>
-                  
+                        
+      
       <version>2.10.2</version>
-              
+                    
+    
     </dependency>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>com.fasterxml.jackson.core</groupId>
-                  
+                        
+      
       <artifactId>jackson-annotations</artifactId>
-                  
+                        
+      
       <version>2.10.2</version>
-              
+                    
+    
     </dependency>
-            
+                
+    
     <dependency>
-                  
+                        
+      
       <groupId>javax.validation</groupId>
-                  
+                        
+      
       <artifactId>validation-api</artifactId>
-                  
+                        
+      
       <version>2.0.1.Final</version>
-              
+                    
+    
     </dependency>
-        
+            
+  
   </dependencies>
-      
-  <build>
-            
-    <plugins>
-                  
-      <plugin>
-                        
-        <groupId>org.apache.maven.plugins</groupId>
-                        
-        <artifactId>maven-compiler-plugin</artifactId>
-                        
-        <version>3.8.1</version>
-                        
-        <configuration>
-                              
-          <release>11</release>
-                          
-        </configuration>
-                    
-      </plugin>
-                  
-      <plugin>
-                        
-        <groupId>org.apache.maven.plugins</groupId>
-                        
-        <artifactId>maven-source-plugin</artifactId>
-                        
-        <version>3.2.1</version>
-                        
-        <executions>
-                              
-          <execution>
-                                    
-            <id>attach-sources</id>
-                                    
-            <goals>
-                                          
-              <goal>jar</goal>
-                                      
-            </goals>
-                                
-          </execution>
-                          
-        </executions>
-                    
-      </plugin>
-                  
-      <plugin>
-                        
-        <groupId>org.apache.maven.plugins</groupId>
-                        
-        <artifactId>maven-javadoc-plugin</artifactId>
-                        
-        <version>3.1.1</version>
-                        
-        <executions>
-                              
-          <execution>
-                                    
-            <id>attach-javadocs</id>
-                                    
-            <goals>
-                                          
-              <goal>jar</goal>
-                                      
-            </goals>
-                                
-          </execution>
-                          
-        </executions>
-                    
-      </plugin>
-              
-    </plugins>
         
-  </build>
+  
+  <build>
+                
+    
+    <plugins>
+                        
       
-  <modules>
-            
-    <module>common-domain</module>
-            
-    <module>app-strings-numbers</module>
-            
-    <module>app-immutability-objects</module>
-            
-    <module>app-date-time</module>
-            
-    <module>app-inference-type</module>
-            
-    <module>app-collections-data</module>
-            
-    <module>app-java-io</module>
-            
-    <module>app-reflection-classes</module>
+      <plugin>
+                                
+        
+        <groupId>org.apache.maven.plugins</groupId>
+                                
+        
+        <artifactId>maven-compiler-plugin</artifactId>
+                                
+        
+        <version>3.8.1</version>
+                                
+        
+        <configuration>
+                                        
           
+          <release>11</release>
+                                    
+        
+        </configuration>
+                            
+      
+      </plugin>
+                        
+      
+      <plugin>
+                                
+        
+        <groupId>org.apache.maven.plugins</groupId>
+                                
+        
+        <artifactId>maven-source-plugin</artifactId>
+                                
+        
+        <version>3.2.1</version>
+                                
+        
+        <executions>
+                                        
+          
+          <execution>
+                                                
+            
+            <id>attach-sources</id>
+                                                
+            
+            <goals>
+                                                        
+              
+              <goal>jar</goal>
+                                                    
+            
+            </goals>
+                                            
+          
+          </execution>
+                                    
+        
+        </executions>
+                            
+      
+      </plugin>
+                        
+      
+      <plugin>
+                                
+        
+        <groupId>org.apache.maven.plugins</groupId>
+                                
+        
+        <artifactId>maven-javadoc-plugin</artifactId>
+                                
+        
+        <version>3.1.1</version>
+                                
+        
+        <executions>
+                                        
+          
+          <execution>
+                                                
+            
+            <id>attach-javadocs</id>
+                                                
+            
+            <goals>
+                                                        
+              
+              <goal>jar</goal>
+                                                    
+            
+            </goals>
+                                            
+          
+          </execution>
+                                    
+        
+        </executions>
+                            
+      
+      </plugin>
+                    
+    
+    </plugins>
+            
+  
+  </build>
+        
+  
+  <modules>
+                
+    
+    <module>common-domain</module>
+                
+    
+    <module>app-strings-numbers</module>
+                
+    
+    <module>app-immutability-objects</module>
+                
+    
+    <module>app-date-time</module>
+                
+    
+    <module>app-inference-type</module>
+                
+    
+    <module>app-collections-data</module>
+                
+    
+    <module>app-java-io</module>
+                
+    
+    <module>app-reflection-classes</module>
+              
+    
     <module>app-functional-style</module>
+          
+    
+    <module>app-concurrent-threads</module>
       
   </modules>
-  
+    
+
 </project>
