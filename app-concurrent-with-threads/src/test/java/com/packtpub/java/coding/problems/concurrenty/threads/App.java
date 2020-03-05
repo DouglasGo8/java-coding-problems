@@ -1,18 +1,19 @@
-package com.packtpub.java.coding.problems.concurrency.threads;
+package com.packtpub.java.coding.problems.concurrenty.threads;
 
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.sql.Time;
-import java.util.concurrent.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static java.lang.System.out;
 
 public class App {
-
 
     /**
      * The different lifecycle states
@@ -112,7 +113,7 @@ public class App {
 
         ThreadFactory treadFactory = (Runnable r) -> {
             counter.incrementAndGet();
-          return new Thread(r, "Cooled-Thread-" + counter.get());
+            return new Thread(r, "Cooled-Thread-" + counter.get());
         };
 
 
@@ -135,5 +136,4 @@ public class App {
             }
         }
     }
-
 }
