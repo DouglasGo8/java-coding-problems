@@ -7,6 +7,10 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.concurrent.locks.StampedLock;
 import java.util.function.Function;
 
 
@@ -234,7 +238,39 @@ public class App {
         randomList.getRandoms().forEach(out::println);
     }
 
+    @Test
+    public void howToReentrantLock() {
 
-    
+
+        final class CounterWithLock {
+            private final Lock lock = new ReentrantLock();
+            private int counter;
+
+            public void counter() {
+                lock.lock();
+                try {
+                    counter++;
+                } finally {
+                    lock.unlock();
+                }
+            }
+        }
+
+        final var objCounter = new CounterWithLock();
+        final Runnable task =  objCounter::counter;
+        //
+
+        var executors = Executors.newFixedThreadPool(8);
+
+        for (int i=0;i< 1_000_000;i++) {
+            executors.execute(task);
+        }
+
+        // performs better than Reentrant and support
+        // optimistic reads.
+        // StampedLock
+
+    }
+
 
 }

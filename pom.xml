@@ -92,5 +92,7 @@
         <module>app-functional-style</module>
         <module>app-concurrent-with-threads</module>
         <module>app-concurrency-deep-dive</module>
+        <module>app-optional</module>
+        <module>app-http-client-websocket</module>
     </modules>
 </project>
